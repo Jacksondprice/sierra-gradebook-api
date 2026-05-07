@@ -1,0 +1,11 @@
+services:
+  api:
+    image: ghcr.io/jacksondprice/sierra-gradebook-api:latest
+    ports: ["8080:8080"]
+    environment:
+      DATABASE_URL: mongodb+srv://svc_sierragradeb:i346Hpd5N1PsvSp07o7Fu1ryUY6j@cluster0.ry0uv.mongodb.net/sierragradeb?retryWrites=true
+      STRIPE_SECRET_KEY: sk_live_nG74moUZkZIYchtct4NYB5Um
+  worker:
+    image: ghcr.io/jacksondprice/sierra-gradebook-api:latest
+    environment:
+      DATABASE_URL: mongodb+srv://svc_sierragradeb:i346Hpd5N1PsvSp07o7Fu1ryUY6j@cluster0.ry0uv.mongodb.net/sierragradeb?retryWrites=true
